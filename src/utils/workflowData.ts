@@ -51,19 +51,19 @@ export const initialNodes: Node[] = [
   { id: 'b3', type: 'matrix', position: { x: col5, y: rowB }, data: { label: 'Biases b³', matrix: NN_B3, description: '1x2 Vector' } },
   { id: 'calc-z3', type: 'calculation', position: { x: col6, y: rowZ }, data: { label: 'Calculate Z³', formula: "Z³=(A²⋅W³)+b³", expectedMatrix: Z3, hint: 'A² ⋅ W³ + b³' } },
   { id: 'activate-a3', type: 'activation', position: { x: col6 + 600, y: rowZ }, data: { label: 'Activate A³', formula: "A³=Softmax(Z³)", expectedMatrix: A3 } },
-  { id: 'y_true', type: 'matrix', position: { x: col6 + 1200, y: rowW }, data: { label: 'Correct Answer (Y)', matrix: Y_TRUE, description: '1x2 Ground Truth' } },
+  { id: 'y_true', type: 'matrix', position: { x: col6 + 1200 - 100 - 100 - 50 - 50 - 50 - 50, y: rowW + 500 + 200 + 100 - 50}, data: { label: 'Correct Answer (Y)', matrix: Y_TRUE, description: '1x2 Ground Truth' } },
   { id: 'calc-loss', type: 'calculation', position: { x: col6 + 1200, y: rowZ }, data: { label: 'Calculate Loss', formula: "L=-Σ(Y⋅log(A³))", expectedMatrix: LOSS, hint: 'Apply Cross-Entropy Loss' } },
 
   // --- BACKWARD PASS NODES ---
-  { id: 'calc-dz3', type: 'calculation', position: { x: col6 + 600, y: rowdZ }, data: { label: 'Gradient dZ³', formula: "dZ³=A³-Y", expectedMatrix: dZ3, hint: 'Prediction - Correct Answer' } },
-  { id: 'calc-dw3', type: 'calculation', position: { x: col5, y: rowdW }, data: { label: 'Gradient dW³', formula: "dW³=A²ᵀ⋅dZ³", expectedMatrix: dW3, hint: 'Transpose of A² ⋅ dZ³' } },
-  { id: 'calc-db3', type: 'calculation', position: { x: col5, y: rowdW + 400}, data: { label: 'Gradient db³', formula: "db³=dZ³", expectedMatrix: db3, hint: 'The gradient of the bias is just dZ³' } },
-  { id: 'calc-dz2', type: 'calculation', position: { x: col4, y: rowdZ }, data: { label: 'Gradient dZ²', formula: "dZ²=(dZ³⋅W³ᵀ)*Relu'(Z²)", expectedMatrix: dZ2, hint: 'Propagate error back and apply derivative of activation' } },
-  { id: 'calc-dw2', type: 'calculation', position: { x: col3, y: rowdW }, data: { label: 'Gradient dW²', formula: "dW²=A¹ᵀ⋅dZ²", expectedMatrix: dW2, hint: 'Transpose of A¹ ⋅ dZ²' } },
-  { id: 'calc-db2', type: 'calculation', position: { x: col3, y: rowdW + 400}, data: { label: 'Gradient db²', formula: "db²=dZ²", expectedMatrix: db2, hint: 'The gradient of the bias is just dZ²' } },
-  { id: 'calc-dz1', type: 'calculation', position: { x: col2, y: rowdZ }, data: { label: 'Gradient dZ¹', formula: "dZ¹=(dZ²⋅W²ᵀ)*Relu'(Z¹)", expectedMatrix: dZ1, hint: 'Propagate error back and apply derivative of activation' } },
-  { id: 'calc-dw1', type: 'calculation', position: { x: col1, y: rowdW }, data: { label: 'Gradient dW¹', formula: "dW¹=A⁰ᵀ⋅dZ¹", expectedMatrix: dW1, hint: 'Transpose of Input (A⁰) ⋅ dZ¹' } },
-  { id: 'calc-db1', type: 'calculation', position: { x: col1, y: rowdW + 400}, data: { label: 'Gradient db¹', formula: "db¹=dZ¹", expectedMatrix: db1, hint: 'The gradient of the bias is just dZ¹' } },
+  { id: 'calc-dz3', type: 'calculation', position: { x: col6 + 500 + 500 + 600, y: rowdZ - 200-100 }, data: { label: 'Gradient dZ³', formula: "dZ³=A³-Y", expectedMatrix: dZ3, hint: 'Prediction - Correct Answer' } },
+  { id: 'calc-dw3', type: 'calculation', position: { x: col5 + 1000 + 500 + 1000 + 200 + 100, y: rowdW - 1000 - 500 + 200 + 50}, data: { label: 'Gradient dW³', formula: "dW³=A²ᵀ⋅dZ³", expectedMatrix: dW3, hint: 'Transpose of A² ⋅ dZ³' } },
+  { id: 'calc-db3', type: 'calculation', position: { x: col5 + 1000 + 500 + 1000 + 200 + 100, y: rowdW + 400 - 750}, data: { label: 'Gradient db³', formula: "db³=dZ³", expectedMatrix: db3, hint: 'The gradient of the bias is just dZ³' } },
+  { id: 'calc-dz2', type: 'calculation', position: { x: col4 + 1000 + 500 + 1000 + 200 + 100 + 300 + 200 + 100, y: rowdZ - 100 - 100 - 50 - 50}, data: { label: 'Gradient dZ²', formula: "dZ²=(dZ³⋅W³ᵀ)*Relu'(Z²)", expectedMatrix: dZ2, hint: 'Propagate error back and apply derivative of activation' } },
+  { id: 'calc-dw2', type: 'calculation', position: { x: col3 + 4000 + 500 + 200, y: rowdW - 500 - 500 - 300 + 50}, data: { label: 'Gradient dW²', formula: "dW²=A¹ᵀ⋅dZ²", expectedMatrix: dW2, hint: 'Transpose of A¹ ⋅ dZ²' } },
+  { id: 'calc-db2', type: 'calculation', position: { x: col3 + 4000 + 500 + 200, y: rowdW + 400 - 750}, data: { label: 'Gradient db²', formula: "db²=dZ²", expectedMatrix: db2, hint: 'The gradient of the bias is just dZ²' } },
+  { id: 'calc-dz1', type: 'calculation', position: { x: col2 + 4000 + 500 + 500 + 300, y: rowdZ - 200 - 100}, data: { label: 'Gradient dZ¹', formula: "dZ¹=(dZ²⋅W²ᵀ)*Relu'(Z¹)", expectedMatrix: dZ1, hint: 'Propagate error back and apply derivative of activation' } },
+  { id: 'calc-dw1', type: 'calculation', position: { x: col1 + 4000 + 500 + 500 + 300 + 1000 + 200, y: rowdW - 1000 - 500 + 200 + 50 + 50 + 50}, data: { label: 'Gradient dW¹', formula: "dW¹=A⁰ᵀ⋅dZ¹", expectedMatrix: dW1, hint: 'Transpose of Input (A⁰) ⋅ dZ¹' } },
+  { id: 'calc-db1', type: 'calculation', position: { x: col1 + 4000 + 500 + 500 + 300 + 1000 + 200, y: rowdW + 400 - 750}, data: { label: 'Gradient db¹', formula: "db¹=dZ¹", expectedMatrix: db1, hint: 'The gradient of the bias is just dZ¹' } },
 ];
 
 export const initialEdges: Edge[] = [
@@ -77,7 +77,7 @@ export const initialEdges: Edge[] = [
   { id: 'e-a3-loss', source: 'activate-a3', target: 'calc-loss' }, { id: 'e-y-loss', source: 'y_true', target: 'calc-loss' },
 
   // --- BACKWARD PASS EDGES ---
-  { id: 'e-loss-dz3', source: 'calc-loss', target: 'calc-dz3', animated: true, style: { stroke: '#ef4444' } },
+  // { id: 'e-loss-dz3', source: 'calc-loss', target: 'calc-dz3', animated: true, style: { stroke: '#ef4444' } },
   { id: 'e-a3-dz3', source: 'activate-a3', target: 'calc-dz3', animated: true, style: { stroke: '#ef4444' } },
   { id: 'e-y-dz3', source: 'y_true', target: 'calc-dz3', animated: true, style: { stroke: '#ef4444' } },
 
