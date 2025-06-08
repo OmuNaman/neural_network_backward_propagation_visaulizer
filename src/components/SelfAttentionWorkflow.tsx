@@ -137,7 +137,7 @@ function NeuralNetworkWorkflowContent({ isDark, onToggleTheme }: { isDark: boole
               <div className="p-2 bg-red-500/10 rounded-full"><ArrowLeft className="w-5 h-5 text-red-500" /></div>
               <div>
                 <h3 className="font-semibold text-lg">Part 3: Backward Propagation</h3>
-                <p className="text-sm text-muted-foreground">Work backwards from the loss to calculate the gradients—the signals that tell each weight and bias how to change to get better.</p>
+                <p className="text-sm text-muted-foreground">Work backwards from the loss to calculate the gradients, the signals that tell each weight and bias how to change to get better.</p>
               </div>
             </div>
           </div>
