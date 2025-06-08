@@ -93,4 +93,4 @@ export const initialEdges: Edge[] = [
 
   { id: 'e-dz1-dw1', source: 'calc-dz1', target: 'calc-dw1', animated: true, style: { stroke: '#ef4444' } },
   { id: 'e-dz1-db1', source: 'calc-dz1', target: 'calc-db1', animated: true, style: { stroke: '#ef4444' } },
-];
+]
